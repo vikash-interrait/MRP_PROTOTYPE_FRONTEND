@@ -1,0 +1,123 @@
+<!-- Sidebar -->
+<div class="w-64 h-full bg-gray-800 text-white flex flex-col p-4 space-y-4">
+  <!-- Logo -->
+  <div class="flex items-center text-lg font-semibold space-x-2">
+    <i class="bi bi-box-seam text-xl"></i>
+        <ng-icon name="bootstrapBox" />
+    <span>Material Planning</span>
+  </div>
+
+  <!-- Navigation -->
+  <ul class="space-y-2">
+
+    <!-- Dashboard -->
+    <li>
+      <a href="#dashboard" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <!-- Master Data (Collapsible Trigger) -->
+    <li>
+      <button
+        (click)="toggleMaster = !toggleMaster"
+        class="w-full flex justify-between items-center px-3 py-2 rounded hover:bg-gray-700"
+      >
+        <div class="flex items-center space-x-2">
+          <i class="bi bi-pie-chart"></i>
+          <span>Master Data</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+
+      <!-- Master Data Children -->
+      <div *ngIf="toggleMaster" class="ml-6 mt-2 space-y-2">
+        <a href="#skumasters" class="block px-2 py-1 rounded hover:bg-gray-700">
+          <i class="bi bi-pie-chart"></i> SKU Master
+        </a>
+        <a href="#bom" class="block px-2 py-1 rounded hover:bg-gray-700">
+          <i class="bi bi-diagram-3"></i> Bill of Materials
+        </a>
+        <a href="#supplier" class="block px-2 py-1 rounded hover:bg-gray-700">
+          <i class="bi bi-diagram-3"></i> Supplier Master
+        </a>
+      </div>
+    </li>
+
+    <!-- Inventory -->
+    <li>
+      <a href="#inventory" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-box"></i>
+        <span>Inventory</span>
+      </a>
+    </li>
+
+    <!-- MRP -->
+    <li>
+      <a href="#mrp" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-calculator"></i>
+        <span>MRP</span>
+      </a>
+    </li>
+
+    <!-- Procurement -->
+    <li>
+      <a href="#procurement" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-cart3"></i>
+        <span>Procurement</span>
+      </a>
+    </li>
+
+    <!-- Forecast Overview -->
+    <li>
+      <button
+        (click)="toggleForecast = !toggleForecast"
+        class="w-full flex justify-between items-center px-3 py-2 rounded hover:bg-gray-700"
+      >
+        <div class="flex items-center space-x-2">
+          <i class="bi bi-graph-up"></i>
+          <span>Forecast Overview</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+
+      <!-- Forecast Children -->
+      <div *ngIf="toggleForecast" class="ml-6 mt-2 space-y-2">
+        <a href="#forecast" class="block px-2 py-1 rounded hover:bg-gray-700">
+          <i class="bi bi-diagram-3"></i> SKU Forecast
+        </a>
+        <a href="#bomforecast" class="block px-2 py-1 rounded hover:bg-gray-700">
+          <i class="bi bi-diagram-2"></i> Component Forecast
+        </a>
+        <a href="#rmforecast" class="block px-2 py-1 rounded hover:bg-gray-700">
+          <i class="bi bi-diagram-2"></i> RM Forecast
+        </a>
+      </div>
+    </li>
+
+    <!-- Reports -->
+    <li>
+      <a href="#reports" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-file-earmark-bar-graph"></i>
+        <span>Reports</span>
+      </a>
+    </li>
+
+    <!-- Settings -->
+    <li class="mt-6">
+      <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-gear"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+
+    <!-- Help -->
+    <li>
+      <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-gray-700">
+        <i class="bi bi-question-circle"></i>
+        <span>Help</span>
+      </a>
+    </li>
+  </ul>
+</div>

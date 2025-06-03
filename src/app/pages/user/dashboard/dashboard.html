@@ -1,0 +1,105 @@
+<!-- Dashboard Tab (Only visible if activeTab === 'dashboard') -->
+<div *ngIf="activeTab === 'dashboard'" class="p-6 space-y-6">
+  <!-- Header -->
+  <div>
+    <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+    <p class="text-gray-500">Overview of key performance metrics</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="bg-blue-100 text-blue-800 p-4 rounded shadow flex items-center space-x-4">
+      <i class="bi bi-diagram-3 text-3xl"></i>
+      <div>
+        <h3 class="text-xl font-semibold">128</h3>
+        <p>Active BOMs</p>
+      </div>
+    </div>
+    <div class="bg-green-100 text-green-800 p-4 rounded shadow flex items-center space-x-4">
+      <i class="bi bi-check-circle text-3xl"></i>
+      <div>
+        <h3 class="text-xl font-semibold">92%</h3>
+        <p>Inventory Accuracy</p>
+      </div>
+    </div>
+    <div class="bg-yellow-100 text-yellow-800 p-4 rounded shadow flex items-center space-x-4">
+      <i class="bi bi-exclamation-triangle text-3xl"></i>
+      <div>
+        <h3 class="text-xl font-semibold">18</h3>
+        <p>Low Stock Materials</p>
+      </div>
+    </div>
+    <div class="bg-red-100 text-red-800 p-4 rounded shadow flex items-center space-x-4">
+      <i class="bi bi-x-circle text-3xl"></i>
+      <div>
+        <h3 class="text-xl font-semibold">1</h3>
+        <p>Stockouts</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white shadow rounded p-4">
+      <h5 class="text-lg font-semibold mb-2">Inventory Value by Material Type</h5>
+      <canvas id="inventoryValueChart"></canvas>
+    </div>
+    <div class="bg-white shadow rounded p-4">
+      <h5 class="text-lg font-semibold mb-2">Material Usage by Category</h5>
+      <canvas id="materialUsageChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Recent Requirements Table -->
+  <div class="bg-white shadow rounded p-4">
+    <h5 class="text-lg font-semibold mb-4">Recent Material Requirements</h5>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left text-gray-700">
+        <thead class="bg-gray-100 font-medium text-gray-600">
+          <tr>
+            <th class="px-4 py-2">Component ID</th>
+            <th class="px-4 py-2">Raw Material</th>
+            <th class="px-4 py-2">Required Qty</th>
+            <th class="px-4 py-2">Available Qty</th>
+            <th class="px-4 py-2">Order Status</th>
+            <th class="px-4 py-2">Expected Delivery</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-semibold">CAB-BODY-600</td>
+            <td class="px-4 py-2">HW-SCREW-10MM</td>
+            <td class="px-4 py-2">1200</td>
+            <td class="px-4 py-2">850</td>
+            <td class="px-4 py-2 text-yellow-700">Pending</td>
+            <td class="px-4 py-2">2016-07-15</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-semibold">CAB-DOOR-600-WHT</td>
+            <td class="px-4 py-2">PANEL-MDF-18MM</td>
+            <td class="px-4 py-2">200</td>
+            <td class="px-4 py-2">200</td>
+            <td class="px-4 py-2 text-green-700">Sufficient</td>
+            <td class="px-4 py-2">-</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-semibold">WALL-CAB-BODY-800</td>
+            <td class="px-4 py-2">PANEL-MDF-12MM</td>
+            <td class="px-4 py-2">500</td>
+            <td class="px-4 py-2">50</td>
+            <td class="px-4 py-2 text-red-700">Critical</td>
+            <td class="px-4 py-2">2016-07-10</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 font-semibold">CAB-BODY-1200</td>
+            <td class="px-4 py-2">PANEL-PB-18MM</td>
+            <td class="px-4 py-2">10</td>
+            <td class="px-4 py-2">8</td>
+            <td class="px-4 py-2 text-blue-700">Ordered</td>
+            <td class="px-4 py-2">2016-07-12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
