@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { PublicLayout } from './layout/public-layout/public-layout';
+import { AdminLayout } from './layout/admin-layout/admin-layout';
+import { UserLayout } from './layout/user-layout/user-layout';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    PublicLayout,
+    AdminLayout,
+    UserLayout
   ],
   imports: [
     BrowserModule,
