@@ -3,18 +3,35 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing-module';
 import { SharedModule } from '../../shared/shared-module';
+
 import { Dashboard } from './dashboard/dashboard';
-import { Supplier } from './supplier/supplier';
 import { Inventory } from './inventory/inventory';
 import { SkuMaster } from './sku-master/sku-master';
+import { Bom } from './bom/bom';
+import { SuppilerMaster } from './suppiler-master/suppiler-master';
+import { Mrp } from './mrp/mrp';
+import { Procurement } from './procurement/procurement';
+import { SkuForecast } from './sku-forecast/sku-forecast';
+import { ComponentForecast } from './component-forecast/component-forecast';
+import { RmForecast } from './rm-forecast/rm-forecast';
+import { Reports } from './reports/reports';
+import { Error404 } from './error404/error404';
 
 
 @NgModule({
   declarations: [
     Dashboard,
-    Supplier,
     Inventory,
-    SkuMaster
+    SkuMaster,
+    Bom,
+    SuppilerMaster,
+    Mrp,
+    Procurement,
+    SkuForecast,
+    ComponentForecast,
+    RmForecast,
+    Reports,
+    Error404
   ],
   imports: [
     CommonModule,

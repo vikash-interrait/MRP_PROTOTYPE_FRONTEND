@@ -4,7 +4,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgIconsModule } from '@ng-icons/core';
 
-import { bootstrapBox } from '@ng-icons/bootstrap-icons'
+import { bootstrapBox,bootstrapSpeedometer2,bootstrapChevronDown,bootstrapPieChart,bootstrapDiagram3,bootstrapCalculator,bootstrapCart3,bootstrapGraphUpArrow,bootstrapDiagram2,bootstrapFileEarmarkBarGraph,bootstrapGear,bootstrapQuestionCircle,bootstrapChevronUp } from '@ng-icons/bootstrap-icons'
 
 import { App } from './app';
 import { AppRoutingModule } from './app-routing-module';
@@ -30,7 +30,7 @@ import { AdminSidebar } from './menu/admin-sidebar/admin-sidebar';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    NgIconsModule.withIcons({bootstrapBox})
+    NgIconsModule.withIcons({bootstrapBox,bootstrapSpeedometer2,bootstrapChevronDown,bootstrapPieChart,bootstrapDiagram3,bootstrapCalculator,bootstrapCart3,bootstrapGraphUpArrow,bootstrapDiagram2,bootstrapFileEarmarkBarGraph,bootstrapGear,bootstrapQuestionCircle,bootstrapChevronUp})
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
