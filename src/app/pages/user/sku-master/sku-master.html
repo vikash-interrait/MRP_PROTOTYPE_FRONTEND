@@ -34,3 +34,23 @@
     </tbody>
   </table>
 </div>
+
+
+<p-table [value]="products" class="min-w-[300px]">
+    <ng-template #header>
+        <tr>
+            <th>productDescription</th>
+            <th>productFamily</th>
+            <th>productCategory</th>
+            <th>productLine</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-product>
+        <tr>
+            <td>{{ product.productLine }}</td>
+            <td>{{ product.productCategory }}</td>
+            <td>{{ product.productFamily }}</td>
+            <td>{{ product.productDescription }}</td>
+        </tr>
+    </ng-template>
+</p-table>

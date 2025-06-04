@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing-module';
 import { SharedModule } from '../../shared/shared-module';
+import { TableModule } from 'primeng/table';
+
 
 import { Dashboard } from './dashboard/dashboard';
 import { Inventory } from './inventory/inventory';
@@ -37,6 +39,8 @@ import { Error404 } from './error404/error404';
     CommonModule,
     UserRoutingModule,
     SharedModule,
+        TableModule,
+
   ]
 })
 export class UserModule { }
