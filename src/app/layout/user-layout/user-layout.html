@@ -1,18 +1,15 @@
-<div >
+<div class="flex h-screen">
 
-        <div class="flex border-4">
+    <aside class="shrink overflow-y-auto bg-gray-800">
+        <app-user-sidebar></app-user-sidebar>
+    </aside>
 
-            <aside class="shrink">
-                 <app-user-sidebar></app-user-sidebar>
-            </aside>
-
-            <main class="flex-1">
-                    <router-outlet></router-outlet>
-            </main>
-        </div>
-
-    
+    <main class="flex-1 overflow-y-auto bg-white">
+        <router-outlet></router-outlet>
+    </main>
 </div>
+
+
 <!-- Scroll to Top Button
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
