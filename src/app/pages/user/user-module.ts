@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing-module';
 import { SharedModule } from '../../shared/shared-module';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+
 
 
 import { Dashboard } from './dashboard/dashboard';
@@ -39,7 +41,8 @@ import { Error404 } from './error404/error404';
     CommonModule,
     UserRoutingModule,
     SharedModule,
-        TableModule,
+    TableModule,
+    ButtonModule,
 
   ]
 })

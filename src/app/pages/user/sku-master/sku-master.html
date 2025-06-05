@@ -1,5 +1,5 @@
 <!-- product-table.component.html -->
-<div class="p-4 overflow-x-auto">
+<!-- <div class="p-4 overflow-x-auto">
   <h2 class="text-2xl font-semibold mb-4 text-gray-800">SKU Master</h2>
   <table class="min-w-full table-auto border border-gray-300 text-sm">
     <thead class="bg-gray-100 text-gray-700">
@@ -33,24 +33,29 @@
       </tr>
     </tbody>
   </table>
+</div> -->
+
+
+<div class="card p-4 w-[80%] ">
+    <p-table
+        [value]="SKU"
+        showGridlines
+        >
+            <ng-template #header>
+                <tr>
+                  @for(col of columns; track $index){
+                    <th>{{col}}</th>
+                  }
+                </tr>
+            </ng-template>
+            <ng-template #body let-product>
+              @for( row of SKU; track $index){
+                <tr>
+                  @for( col of columns; track col){
+                    <td>{{ row[col]}}</td>
+                  }
+                </tr>
+              }
+            </ng-template>
+    </p-table>
 </div>
-
-
-<p-table [value]="products" class="min-w-[300px]">
-    <ng-template #header>
-        <tr>
-            <th>productDescription</th>
-            <th>productFamily</th>
-            <th>productCategory</th>
-            <th>productLine</th>
-        </tr>
-    </ng-template>
-    <ng-template #body let-product>
-        <tr>
-            <td>{{ product.productLine }}</td>
-            <td>{{ product.productCategory }}</td>
-            <td>{{ product.productFamily }}</td>
-            <td>{{ product.productDescription }}</td>
-        </tr>
-    </ng-template>
-</p-table>

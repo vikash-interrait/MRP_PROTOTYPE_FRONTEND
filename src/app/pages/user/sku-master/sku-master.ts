@@ -9,7 +9,10 @@ import { Component } from '@angular/core';
 
 export class SkuMaster {
 
-  SKU = [
+
+  columns! : string[];
+
+  SKU : { [key: string]: string }[]= [
     {
       skuCode: "KBAFP93847",
       productLine: "Kitchen",
@@ -64,22 +67,9 @@ export class SkuMaster {
     },
   ];
 
-  products = [
-    {
-      skuCode: "KBAFP93847",
-      productLine: "Kitchen",
-      productCategory: "Base Cabinet",
-      productFamily: "Flat Panel",
-      productDescription: "Sleek white base cabinet with flat panel design, offering minimalist aesthetic and efficient storage."
-    },
-    {
-      skuCode: "KBAFP27491",
-      productLine: "Kitchen",
-      productCategory: "Base Cabinet",
-      productFamily: "Flat Panel",
-      productDescription: "800mm wide base cabinet in white, featuring flat panel design that complements modern kitchen interiors."
-    },
-  ];
+  ngOnInit(){
+    this.columns = Object.keys(this.SKU[0])
+  }
 
 
 }
