@@ -1,3 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @plugin "tailwindcss-primeui";
+
+
+/* Optional: style scrollbar for both sections */
+aside::-webkit-scrollbar,
+main::-webkit-scrollbar {
+  width: 6px;
+}
+
+aside::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 3px;
+}
+
+
+
+/* :root {
+    --theme-primary: #1E3A8A;
+    --theme-secondary: #0EA5E9;
+    --theme-accent: #F472B6;
+    --theme-success: #10B981;
+    --theme-warning: #F59E0B;
+    --theme-danger: #EF4444;
+    --theme-bg: #F3F4F6;
+    --theme-surface: #FFFFFF;
+    --text-primary: #111827;
+    --text-secondary: #27437a;
+    --theme-shadow: rgba(0, 0, 0, 0.1);
+} */
+
+/* :root {
+    --primary-color: var(--theme-primary);
+    --primary-color-text: var(--text-primary);
+    --secondary-color: var(--theme-secondary);
+} */

@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, SlicePipe } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing-module';
 import { SharedModule } from '../../shared/shared-module';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
-
+import { NgIconsModule } from '@ng-icons/core';
+import { bootstrapDownload } from '@ng-icons/bootstrap-icons'
 
 import { Dashboard } from './dashboard/dashboard';
 import { Inventory } from './inventory/inventory';
@@ -43,6 +45,9 @@ import { Error404 } from './error404/error404';
     SharedModule,
     TableModule,
     ButtonModule,
+    DialogModule,
+    SlicePipe,
+    NgIconsModule.withIcons({ bootstrapDownload })
 
   ]
 })

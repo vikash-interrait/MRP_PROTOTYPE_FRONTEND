@@ -6,10 +6,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import customeizePresetAuraTheme  from '../primenng-preset-theme'
 
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapBox, bootstrapSpeedometer2, bootstrapChevronDown, bootstrapPieChart, bootstrapDiagram3, bootstrapCalculator, bootstrapCart3, bootstrapGraphUpArrow, bootstrapDiagram2, bootstrapFileEarmarkBarGraph, bootstrapGear, bootstrapQuestionCircle, bootstrapChevronUp } from '@ng-icons/bootstrap-icons'
+
 
 import { App } from './app';
 import { AppRoutingModule } from './app-routing-module';
@@ -43,9 +44,13 @@ import { AdminSidebar } from './menu/admin-sidebar/admin-sidebar';
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: customeizePresetAuraTheme,
         options: {
-          darkModeSelector: '.my-app-dark'
+          darkModeSelector: '.my-app-dark',
+          cssLayer: {
+                name: 'primeng',
+                order: 'theme, base, primeng'
+            }
         }
       },
     })

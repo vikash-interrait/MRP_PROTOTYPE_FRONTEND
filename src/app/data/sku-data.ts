@@ -11,7 +11,7 @@ export const skuData = [
     Hardware: "Steel",
     Configuration: "Single Door",
     "Product Description":
-      "Sleek white base cabinet with flat panel design, offering minimalist aesthetic and efficient storage.",
+      "Sleek white base cabinet with flat panel design, offering minimalist aesthetic and efficient storage.Spacious 1200mm white base cabinet with double doors and flat panel design, ideal for ample kitchen storage.Spacious 1200mm white base cabinet with double doors and flat panel design, ideal for ample kitchen storage.",
   },
   {
     "SKU Code": "KBAFP27491",

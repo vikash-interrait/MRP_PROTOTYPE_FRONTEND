@@ -12,14 +12,23 @@ import { skuData } from '../../../data/sku-data';
 export class SkuMaster {
 
 
-  columns! : string[];
+  visibleDialog: boolean = false;
 
-  SKU : { [key: string]: string }[]= skuData
+  columns!: string[];
 
+  SKU: { [key: string]: string }[] = skuData
 
-  ngOnInit(){
+  selectedRowData! :{ [key: string]: string };
+
+  ngOnInit() {
     this.columns = Object.keys(this.SKU[0])
   }
 
+
+  showRowDataDialog(data : any) {
+    console.log("click the button")
+    this.selectedRowData = data
+    this.visibleDialog = true;
+  }
 
 }
