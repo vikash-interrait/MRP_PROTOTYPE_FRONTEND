@@ -1,13 +1,13 @@
 <div class="p-4 px-6">
 
-  <h2 class="text-4xl text-gray-700 font-semibold my-2">SKU Master</h2>
+  <h2 class="text-4xl my-heading-color font-semibold my-2 mb-6">SKU Master</h2>
 
 
   <div class="border-2 border-gray-200 rounded-xl">
 
 
     <div class="flex justify-end border-b-gray-300 border-b-1 p-4  py-4 ">
-      <p-button variant="outlined">
+      <p-button variant="outlined" (onClick)="exportData()">
         <ng-icon name="bootstrapDownload" />Export
       </p-button>
 
@@ -15,7 +15,7 @@
 
     <!-- sku master data table start.... -->
     <div class="mt-4 px-4">
-      <p-table [value]="SKU" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]">
+      <p-table [value]="SKU" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]">
         <ng-template #header>
           <tr>
             @for(col of columns; track col; let i = $index){
@@ -39,6 +39,8 @@
       </p-table>
     </div>
 
+
+
     <!-- // modal to show row data -->
     <div class="card flex justify-center">
 
@@ -46,15 +48,19 @@
 
         <p-dialog header="SKU Detail" [modal]="true" [(visible)]="visibleDialog" [style]="{ width: '50rem' }"
         [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [dismissableMask]="true">
+
+        <!-- a horizontal line -->
+        <div class="border-b border-gray-500 mb-4"></div>
+
         
-        <table class="p-datatable p-component w-full border-1 rounded">
+        <table class="p-datatable p-component w-full border-1 rounded border-gray-400">
           <tbody>
             @for(col of columns; track col;){
               <tr>
-                <th class="text-left p-2 border-b font-semibold bg-indigo-50 w-1/3 border-1">
+                <th class="text-left p-2 border-b border-gray-400 font-semibold bg-gray-100 w-1/3 border-1">
                   {{ col }}
                 </th>
-                <td class="p-2 border-b">
+                <td class="p-2 border-b border-gray-400">
                   {{ selectedRowData[col] }}
                 </td>
               </tr>

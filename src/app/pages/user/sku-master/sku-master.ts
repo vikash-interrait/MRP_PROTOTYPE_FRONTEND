@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { skuData } from '../../../data/sku-data';
+import { downloadCSV } from '../../../utils/download-csv';
 
 @Component({
   selector: 'app-sku-master',
@@ -15,7 +16,7 @@ export class SkuMaster {
   visibleDialog: boolean = false;
 
   columns!: string[];
-
+  
   SKU: { [key: string]: string }[] = skuData
 
   selectedRowData! :{ [key: string]: string };
@@ -26,9 +27,12 @@ export class SkuMaster {
 
 
   showRowDataDialog(data : any) {
-    console.log("click the button")
     this.selectedRowData = data
     this.visibleDialog = true;
+  }
+
+  exportData(){
+    downloadCSV(this.SKU)
   }
 
 }

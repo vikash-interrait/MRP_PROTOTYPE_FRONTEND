@@ -17,7 +17,7 @@ main::-webkit-scrollbar-thumb {
 
 
 
-/* :root {
+:root {
     --theme-primary: #1E3A8A;
     --theme-secondary: #0EA5E9;
     --theme-accent: #F472B6;
@@ -29,7 +29,11 @@ main::-webkit-scrollbar-thumb {
     --text-primary: #111827;
     --text-secondary: #27437a;
     --theme-shadow: rgba(0, 0, 0, 0.1);
-} */
+}
+
+.my-heading-color{
+  color: var(--theme-primary);
+}
 
 /* :root {
     --primary-color: var(--theme-primary);
