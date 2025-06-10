@@ -11,12 +11,14 @@ export function downloadCSV(data : any[]){
       return columns.map( col =>{
         let cell = row[col] ?? '';
 
-        // escape double quotes
-        cell = cell.replace(/"/g,'""');
-
-        // wrap cell in double quotes if needed
-        if( cell.includes(',') || cell.includes('"') || cell.includes('\n')){
-          cell = `"${cell}"`
+        if( typeof row[col] === 'string'){
+          // escape double quotes
+          cell = cell.replace(/"/g,'""');
+  
+          // wrap cell in double quotes if needed
+          if( cell.includes(',') || cell.includes('"') || cell.includes('\n')){
+            cell = `"${cell}"`
+          }
         }
 
         return cell

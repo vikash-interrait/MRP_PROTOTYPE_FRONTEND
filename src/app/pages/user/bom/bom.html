@@ -1,1 +1,98 @@
-<p>bom works!</p>
+<div class="p-4 px-6">
+
+    <h2 class="text-4xl my-heading-color font-semibold my-2 mb-6">BOM</h2>
+
+
+    <div class="border-2 border-gray-200 rounded-xl">
+
+
+        <div class="flex justify-end gap-4 border-b-gray-300 border-b-1 p-4  py-4 ">
+
+            <p-button variant="outlined">
+                <ng-icon name="bootstrapDownload" />New Bom
+            </p-button>
+
+            <p-button variant="outlined" (onClick)="exportData()">
+                <ng-icon name="bootstrapDownload" />Export
+            </p-button>
+
+        </div>
+
+        <!-- BOM master data table start.... -->
+        <div class="mt-4 px-4">
+            <div class="card">
+                <p-table 
+                    [value]="groupedMainData" 
+                    sortField="Parent_SKU" 
+                    sortMode="single" 
+                    dataKey="Primary_Key"
+                    [paginator]="true"
+                    [rows]="10"
+                    [rowsPerPageOptions]="[5, 10, 20]"
+                    [tableStyle]="{'min-width': '70rem',}">
+
+                    <ng-template #header>
+                        <tr>
+                            @for( col of mainDatacolumns; track col){
+                            <th >{{col}}</th>
+                            }
+                        </tr>
+                    </ng-template>
+
+                    <ng-template #body let-rowData let-expanded="expanded">
+                        <tr [pRowToggler]="rowData" class="cursor-pointer hover:translate-0.5 transition-transform duration-100">
+                            @for( col of mainDatacolumns; track col; ){
+                            @if( col === "Parent_SKU"){
+                            <td>
+                                <button type="button" pButton pRipple text rounded
+                                    class="mr-1 hover:bg-indigo-100"
+                                    [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                                </button>
+                                <span>{{rowData[col]}}</span>
+                            </td>
+                            }@else {
+                            <td>{{rowData[col]}}</td>
+                            }
+                            }
+                        </tr>
+                    </ng-template>
+
+                    <ng-template #expandedrow let-rowData>
+                        <tr class="border-l-4! border-l-indigo-800 border-collapse">
+                            <!-- To Do : colspan must be equal to the no. of fields in the parent columns -->
+                            <td colspan="6">
+                                <p-table [value]="getChildrenForRow(rowData.Component_ID)">
+                                    <ng-template #header let-childRow>
+                                        <tr class="bg-indigo-300!">
+                                            @for( col of childDataColumns; track col){
+                                            <th>{{col}}</th>
+                                            }
+                                        </tr>
+                                    </ng-template>
+
+                                    <ng-template #body let-childRow>
+                                        <tr class="hover:scale-[101%] hover:-translate-y-0.5 duration-200 transition-transform">
+                                            @for( col of childDataColumns; track col){
+                                            <td>{{childRow[col]}}</td>
+                                            }
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </td>
+                        </tr>
+                    </ng-template>
+
+
+
+
+                </p-table>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

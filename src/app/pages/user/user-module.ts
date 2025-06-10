@@ -6,6 +6,7 @@ import { SharedModule } from '../../shared/shared-module';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { Tag } from 'primeng/tag';
 
 import { NgIconsModule } from '@ng-icons/core';
 import { bootstrapDownload } from '@ng-icons/bootstrap-icons'
@@ -46,6 +47,7 @@ import { Error404 } from './error404/error404';
     TableModule,
     ButtonModule,
     DialogModule,
+    Tag,
     SlicePipe,
     NgIconsModule.withIcons({ bootstrapDownload })
 
