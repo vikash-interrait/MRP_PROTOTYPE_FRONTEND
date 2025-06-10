@@ -1,1 +1,164 @@
-<p>suppiler-master works!</p>
+<div class="p-4 px-6">
+
+    <h2 class="text-4xl my-heading-color font-semibold my-2 mb-6">Supplier</h2>
+
+
+    <div class="border-2 border-gray-200 rounded-xl">
+
+
+        <div class="flex justify-end border-b-gray-300 border-b-1 p-4  py-4 gap-4">
+
+            <p-button variant="outlined" (click)="showAddSupplierDialog()">
+                <ng-icon name="bootstrapDownload" />Add Supplier
+            </p-button>
+
+            <p-button variant="outlined">
+                <ng-icon name="bootstrapDownload" />Import
+            </p-button>
+            <p-button variant="outlined" (onClick)="exportData()">
+                <ng-icon name="bootstrapDownload" />Export
+            </p-button>
+
+        </div>
+
+        <!-- sku master data table start.... -->
+        <div class="mt-4 px-4">
+            <p-table [value]="supplier" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]">
+                <ng-template #header>
+                    <tr>
+                        @for(col of columns; track col; let i = $index){
+                        <th class="whitespace-nowrap capitalize">{{col}}</th>
+                        }
+                    </tr>
+                </ng-template>
+                <ng-template #body let-supplierRow>
+
+                    <tr (click)="showRowDataDialog(supplierRow)" class="cursor-pointer">
+                        @for( col of columns; track col; let i = $index){
+                        <td class="whitespace-nowrap">{{ supplierRow[col]}}
+                            @if( supplierRow[col]?.length > 40){
+                            <ng-container>...</ng-container>
+                            }
+                        </td>
+                        }
+                    </tr>
+
+                </ng-template>
+            </p-table>
+        </div>
+
+
+
+        <!-- // modal to show row data -->
+        <div class="card flex justify-center transition-all duration-300">
+
+            @if( selectedRowData ){
+
+            <p-dialog header="Supplier Detail" [modal]="true" [(visible)]="visibleDialog" [style]="{ width: '50rem' }"
+                [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [dismissableMask]="true">
+
+                <!-- a horizontal line -->
+                <div class="border-b border-gray-500 mb-4"></div>
+
+
+                <table class="p-datatable p-component w-full border-1 rounded border-gray-400">
+                    <tbody>
+                        @for(col of columns; track col;){
+                        <tr>
+                            <th class="text-left p-2 border-b border-gray-400 font-semibold bg-gray-100 w-1/3 border-1">
+                                {{ col }}
+                            </th>
+                            <td class="p-2 border-b border-gray-400">
+                                {{ selectedRowData[col] }}
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </p-dialog>
+            }
+        </div>
+
+
+        <!-- Dailog/modal to show add supplier form -->
+        <div class="card flex justify-center border-5">
+
+            <p-dialog header="Add Supplier" [modal]="true" [(visible)]="visibleAddSupplierDialog"
+                dismissableMask="true" [style]="{ width: '65%' }">
+
+                <span class="p-text-secondary block mb-8">Write your information.</span>
+
+                <form action="/" class="space-y-4">
+
+                    <!-- row: Supplier Id + Supplier Name -->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="supplierId" class="font-semibold">Supplier Id</label>
+                            <input id="supplierId" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="supplierName" class="font-semibold">Supplier Name</label>
+                            <input id="supplierName" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- row: Contact Person + Email -->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="contactPerson" class="font-semibold">Contact Person</label>
+                            <input id="contactPerson" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="email" class="font-semibold">Email</label>
+                            <input id="email" type="email" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100"
+                                autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- row: Phone + City -->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="phone" class="font-semibold">Phone</label>
+                            <input id="phone" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="city" class="font-semibold">City</label>
+                            <input id="city" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- row: Country + Raw Material Supplied -->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="country" class="font-semibold">Country</label>
+                            <input id="country" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="rawmaterialSupplied" class="font-semibold">Raw Material Supplied</label>
+                            <input id="rawmaterialSupplied" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100"
+                                autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- buttons -->
+                    <div class="flex justify-end gap-2 pt-4">
+                        <p-button label="Cancel" severity="secondary" (click)="visibleAddSupplierDialog = false" />
+                        <p-button label="Save" (click)="visibleAddSupplierDialog = false" />
+                    </div>
+
+                </form>
+
+            </p-dialog>
+
+        </div>
+
+
+    </div>
+
+
+</div>
