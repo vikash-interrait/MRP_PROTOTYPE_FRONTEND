@@ -11,7 +11,7 @@ import { mainData, childData } from '../../../data/bom-data';
 })
 export class Bom {
 
-  visibleNewBomDialog = true;
+  visibleNewBomDialog = false;
 
   mainDatacolumns!: string[];
   childDataColumns!: string[];
