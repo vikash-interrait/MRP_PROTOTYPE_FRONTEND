@@ -8,7 +8,7 @@
 
         <div class="flex justify-end gap-4 border-b-gray-300 border-b-1 p-4  py-4 ">
 
-            <p-button variant="outlined">
+            <p-button variant="outlined" (click)="showNewBOMDialog()">
                 <ng-icon name="bootstrapDownload" />New Bom
             </p-button>
 
@@ -89,7 +89,68 @@
             </div>
         </div>
 
+        <!-- Dialog/modal for add new BOM -->
+         <div class="card flex justify-center">
 
+            <p-dialog header="Add New BOM" [modal]="true" [(visible)]="visibleNewBomDialog"
+                dismissableMask="true" [style]="{ width: '65%' }">
+
+                <span class="p-text-secondary block mb-8">Write your information.</span>
+
+                <form action="/" class="space-y-4">
+
+                    <!-- row: Parent SKU + Component ID -->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="parentSku" class="font-semibold">Parent SKU</label>
+                            <input id="parentSku" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="componentId" class="font-semibold">Component ID</label>
+                            <input id="componentId" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100"
+                                autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- row: Component Description + Quantity -->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="componentDescription" class="font-semibold">Component Description</label>
+                            <input id="componentDescription" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="quantity" class="font-semibold">Quantity</label>
+                            <input id="quantity" type="number" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- row: Unit + Lead Time-->
+                    <div class="flex gap-6">
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="unit" class="font-semibold">Unit</label>
+                            <input id="unit" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100" autocomplete="off" />
+                        </div>
+
+                        <div class="flex flex-col flex-1 gap-1">
+                            <label for="leadTime" class="font-semibold">Lead Time</label>
+                            <input id="leadTime" class="outline-none rounded-lg shadow bg-gray-100 p-2 hover:scale-[102%] transition-transform duration-100"
+                                autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <!-- buttons -->
+                    <div class="flex justify-end gap-2 pt-4">
+                        <p-button label="Cancel" severity="secondary" (click)="visibleNewBomDialog = false" />
+                        <p-button label="Save" (click)="visibleNewBomDialog = false" />
+                    </div>
+
+                </form>
+
+            </p-dialog>
+
+        </div>
 
 
     </div>

@@ -11,6 +11,8 @@ import { mainData, childData } from '../../../data/bom-data';
 })
 export class Bom {
 
+  visibleNewBomDialog = true;
+
   mainDatacolumns!: string[];
   childDataColumns!: string[];
 
@@ -58,7 +60,9 @@ export class Bom {
     downloadCSV(['lalal'])
   }
 
-
+  showNewBOMDialog(){
+    this.visibleNewBomDialog = true;
+  }
   print(data: any) {
     console.log(data)
   }
