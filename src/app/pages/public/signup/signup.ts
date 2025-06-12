@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { authenticationGuard } from '../../../guards/authentication-guard';
+import { Component } from '@angular/core';
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  standalone: false,
+  templateUrl: './signup.html',
+  styleUrl: './signup.css'
 })
-export class SignupComponent implements OnInit {
+export class Signup {
+  
   signupForm!: FormGroup;
   passwordMismatch: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    private authService: authenticationGuard,
+    // private authService: authenticationGuard,
     private router: Router
   ) {}
 
@@ -40,16 +41,15 @@ export class SignupComponent implements OnInit {
 
       const { username, email, password } = this.signupForm.value;
 
-      this.authService.signup({ username, email, password }).subscribe({
-        next: () => {
-          this.router.navigate(['/login']);
-        },
-        error: (err: any) => {
-          console.error('Signup error:', err);
-          // Show error toast or UI message if needed
-        }
-      });
+      // this.authService.signup({ username, email, password }).subscribe({
+      //   next: () => {
+      //     this.router.navigate(['/login']);
+      //   },
+      //   error: (err: any) => {
+      //     console.error('Signup error:', err);
+      //     // Show error toast or UI message if needed
+      //   }
+      // });
     }
   }
 }
-
