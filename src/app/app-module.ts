@@ -21,6 +21,9 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { SharedModule } from "./shared/shared-module";
 import { UserSidebar } from './menu/user-sidebar/user-sidebar';
 import { AdminSidebar } from './menu/admin-sidebar/admin-sidebar';
+import { Signup } from './pages/user/sku-forecast/signup/signup';
+// import { Login } from './login/login';
+// import { Signup } from './signup/signup';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { AdminSidebar } from './menu/admin-sidebar/admin-sidebar';
     UserLayout,
     UserSidebar,
     AdminSidebar,
+    Signup,
+    // Login,
+    // Signup,
   ],
   imports: [
     BrowserModule,
